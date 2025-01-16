@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RailwayTrainingDemo.FlashcardTopicPage"
+             Title="Select Topics">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10" Background="White">
+            <Label Text="Select Topics to Study"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,20"/>
+
+            <CollectionView x:Name="TopicsCollection"
+                          SelectionMode="Multiple"
+                          HeightRequest="600"
+                          VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="8" 
+                              BackgroundColor="Transparent">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    CommandParameter="{Binding .}"
+                                    Tapped="OnTopicTapped"/>
+                            </Grid.GestureRecognizers>
+                            
+                            <Frame BorderColor="{Binding IsSelected, Converter={StaticResource SelectedItemConverter}}"
+                                   BackgroundColor="{Binding IsSelected, Converter={StaticResource SelectedBackgroundConverter}}"
+                                   Padding="20"
+                                   Margin="0,5"
+                                   HasShadow="True"
+                                   MinimumHeightRequest="100"
+                                   InputTransparent="True">
+                                
+                                <Grid RowDefinitions="Auto,Auto" 
+                                      RowSpacing="10"
+                                      InputTransparent="True">
+                                    <HorizontalStackLayout Grid.Row="0" 
+                                                         Spacing="15"
+                                                         InputTransparent="True">
+                                        <Label Text="{Binding Name}"
+                                               FontSize="20"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="Center"
+                                               InputTransparent="True"/>
+                                        <Label Text="{Binding CardCount, StringFormat='({0} cards)'}"
+                                               FontSize="16"
+                                               TextColor="Gray"
+                                               VerticalOptions="Center"
+                                               InputTransparent="True"/>
+                                    </HorizontalStackLayout>
+                                    
+                                    <Label Grid.Row="1"
+                                           Text="{Binding Description}"
+                                           FontSize="16"
+                                           TextColor="Gray"
+                                           InputTransparent="True"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Start Study Session"
+                    Margin="0,20,0,20"
+                    HeightRequest="60"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Clicked="OnStartStudyClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

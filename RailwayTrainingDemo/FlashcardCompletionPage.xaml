@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RailwayTrainingDemo.FlashcardCompletionPage"
+             Title="Session Complete">
+
+    <VerticalStackLayout Spacing="30" 
+                        Padding="20"
+                        VerticalOptions="Center">
+        
+        <Label Text="Session Complete!"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Label Text="{Binding CompletionText}"
+               FontSize="18"
+               TextColor="Gray"
+               HorizontalOptions="Center"/>
+
+        <VerticalStackLayout Spacing="15" 
+                            Margin="0,30,0,0">
+            
+            <Button Text="Study Same Topics Again"
+                    Clicked="OnStudyAgainClicked"/>
+            
+            <Button Text="Select New Topics"
+                    Clicked="OnSelectTopicsClicked"/>
+            
+            <Button Text="Return to Menu"
+                    Clicked="OnReturnToMenuClicked"/>
+        </VerticalStackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage> 

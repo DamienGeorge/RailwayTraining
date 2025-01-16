@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:RailwayTrainingDemo.Converters"
+             x:Class="RailwayTrainingDemo.QuizResultsPage"
+             Title="Quiz Results">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <!-- Results Summary -->
+            <Label Text="{Binding ResultSummary}"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <!-- Results List -->
+            <CollectionView ItemsSource="{Binding Answers}"
+                          EmptyView="No answers to display">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="0,5" 
+                               Padding="15"
+                               BorderColor="{Binding AnswerColor}">
+                            <Grid RowDefinitions="Auto,Auto,Auto"
+                                  ColumnDefinitions="Auto,*"
+                                  RowSpacing="10"
+                                  ColumnSpacing="15">
+                                
+                                <!-- Result Icon -->
+                                <Label Grid.RowSpan="3"
+                                       Text="{Binding ResultIcon}"
+                                       FontFamily="{StaticResource MaterialDesignIcons}"
+                                       TextColor="{Binding AnswerColor}"
+                                       FontSize="24"
+                                       VerticalOptions="Center"/>
+
+                                <!-- Question -->
+                                <Label Grid.Row="0" 
+                                       Grid.Column="1"
+                                       Text="{Binding Question}"
+                                       FontAttributes="Bold"/>
+
+                                <!-- Your Answer -->
+                                <Label Grid.Row="1" 
+                                       Grid.Column="1"
+                                       Text="{Binding UserAnswer, StringFormat='Your answer: {0}'}"
+                                       TextColor="{Binding AnswerColor}"/>
+
+                                <!-- Correct Answer (shown only if wrong) -->
+                                <Label Grid.Row="2" 
+                                       Grid.Column="1"
+                                       Text="{Binding CorrectAnswer, StringFormat='Correct answer: {0}'}"
+                                       IsVisible="{Binding IsCorrect, Converter={StaticResource InverseBoolConverter}}"
+                                       TextColor="Green"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Navigation Buttons -->
+            <HorizontalStackLayout HorizontalOptions="Center" 
+                                 Spacing="20">
+                <Button Text="New Quiz"
+                        Clicked="OnNewQuizClicked"
+                        WidthRequest="150"/>
+                
+                <Button Text="Return to Menu"
+                        Clicked="OnReturnToMenuClicked"
+                        WidthRequest="150"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

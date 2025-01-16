@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RailwayTrainingDemo.MainPage"
+             Title="Railway Training">
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,*,Auto" 
+              Padding="20"
+              RowSpacing="20">
+
+            <!-- Header -->
+            <VerticalStackLayout Grid.Row="0" Spacing="10">
+                <Label Text="Railway Training"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+                <Label Text="Master your railway knowledge"
+                       FontSize="18"
+                       TextColor="Gray"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Main Content -->
+            <Grid Grid.Row="1" 
+                  RowDefinitions="*,*"
+                  ColumnDefinitions="*,*"
+                  Padding="10"
+                  RowSpacing="20"
+                  ColumnSpacing="20">
+
+                <!-- Multiple Choice Card -->
+                <Frame Grid.Row="0" Grid.Column="0"
+                       BorderColor="#e0e0e0"
+                       CornerRadius="10"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMultipleChoiceClicked"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="&#xF064C;"
+                               FontFamily="{StaticResource MaterialDesignIcons}"
+                               FontSize="60"
+                               TextColor="{StaticResource Primary}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Multiple Choice"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Test your knowledge"
+                               FontSize="14"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Flashcards Card -->
+                <Frame Grid.Row="0" Grid.Column="1"
+                       BorderColor="#e0e0e0"
+                       CornerRadius="10"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFlashcardsClicked"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="&#xF0241;"
+                               FontFamily="{StaticResource MaterialDesignIcons}"
+                               FontSize="60"
+                               TextColor="{StaticResource Primary}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Flashcards"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Learn and memorize"
+                               FontSize="14"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Progress Card -->
+                <Frame Grid.Row="1" Grid.Column="0"
+                       BorderColor="#e0e0e0"
+                       CornerRadius="10"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProgressClicked"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="&#xF0492;"
+                               FontFamily="{StaticResource MaterialDesignIcons}"
+                               FontSize="60"
+                               TextColor="{StaticResource Primary}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Progress"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Track your learning"
+                               FontSize="14"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Settings Card -->
+                <Frame Grid.Row="1" Grid.Column="1"
+                       BorderColor="#e0e0e0"
+                       CornerRadius="10"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSettingsClicked"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="&#xF0493;"
+                               FontFamily="{StaticResource MaterialDesignIcons}"
+                               FontSize="60"
+                               TextColor="{StaticResource Primary}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Settings"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Customize app"
+                               FontSize="14"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Footer -->
+            <Label Grid.Row="2"
+                   Text="© 2024 Railway Training"
+                   TextColor="Gray"
+                   FontSize="12"
+                   HorizontalOptions="Center"/>
+        </Grid>
+    </ScrollView>
+</ContentPage> 

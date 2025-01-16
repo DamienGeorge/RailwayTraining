@@ -1,0 +1,6 @@
+<ItemGroup>
+    <MauiImage Include="Resources\Images\railway_logo.png" />
+    <MauiFont Include="Resources\Fonts\materialdesignicons-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </MauiFont>
+</ItemGroup> 

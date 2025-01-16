@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RailwayTrainingDemo.MultipleChoice"
+             Title="Multiple Choice Quiz">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <!-- Progress Bar -->
+        <ProgressBar Progress="{Binding Progress}"
+                     HeightRequest="10"
+                     ProgressColor="Green"/>
+        <Label Text="{Binding ProgressText}"
+               HorizontalOptions="Center"
+               FontSize="14"/>
+
+        <!-- Question -->
+        <Label x:Name="QuestionLabel"
+               Text="{Binding QuestionText}"
+               FontSize="20"
+               FontAttributes="Bold"
+               Margin="0,20"/>
+
+        <!-- Options -->
+        <VerticalStackLayout x:Name="OptionsStack"
+                            Spacing="10"/>
+
+        <!-- Submit Button -->
+        <Button Text="Submit Answer"
+                HorizontalOptions="Center"
+                Margin="0,20,0,0"
+                Clicked="OnSubmitClicked"/>
+    </VerticalStackLayout>
+</ContentPage>

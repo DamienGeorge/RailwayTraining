@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RailwayTrainingDemo.Menu"
+             Title="Menu">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="ButtonFormat">10</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <Label 
+            Text="What would you like to work on today?"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Grid 
+            HorizontalOptions="CenterAndExpand" Padding="0,50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--<Border Background="#2f5cb6"/>
+            <Border Grid.Column ="1" Background="#1f3d7a"/>
+            <Border Grid.Row="1" Grid.ColumnSpan="2" Background="White"/>-->
+
+
+            <Button Grid.Column="2" 
+                   Grid.Row="2"
+                   Text="Flash Card"
+                    Margin="{StaticResource ButtonFormat}"
+                    Clicked="FlashBtn_Clicked"></Button>
+            <Button Grid.Column="2" 
+                   Grid.Row="3"
+                   Text="Multiple Choice Questions"
+                    Margin="{StaticResource ButtonFormat}"
+                    Clicked="MultipleChoiceBtn_Clicked"></Button>
+            <Button Grid.Column="2" 
+                   Grid.Row="4"
+                   Text="Topic Based Questions"
+                    Margin="{StaticResource ButtonFormat}"></Button>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>

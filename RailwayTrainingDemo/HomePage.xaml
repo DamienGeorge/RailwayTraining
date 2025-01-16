@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RailwayTrainingDemo.HomePage"
+             Title="HomePage">
+    <VerticalStackLayout Margin="20">
+        <Label 
+            Text="Welcome to the Railway Training App"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="18"
+            FontFamily="cursive"
+            TextColor ="#283618"/>
+        <Image
+            Source="train_logo.png"
+            HeightRequest="300"
+            Aspect="AspectFit"
+            SemanticProperties.Description="Train Logo" />
+        <Button
+            x:Name="StartBtn"
+            Text="Get Started"
+            VerticalOptions="Center"
+            HorizontalOptions="CenterAndExpand"
+            Clicked="StartBtn_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>

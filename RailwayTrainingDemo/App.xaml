@@ -1,0 +1,33 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RailwayTrainingDemo"
+             xmlns:converters="clr-namespace:RailwayTrainingDemo.Converters"
+             x:Class="RailwayTrainingDemo.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2b3c6a</Color>
+            <Color x:Key="Secondary">#4a5f8f</Color>
+            <Color x:Key="Tertiary">#8b97b5</Color>
+
+            <x:String x:Key="MaterialDesignIcons">materialdesignicons-webfont</x:String>
+
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="HasShadow" Value="True"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Padding" Value="14,10"/>
+            </Style>
+
+            <converters:SelectedItemConverter x:Key="SelectedItemConverter"/>
+            <converters:SelectedBackgroundConverter x:Key="SelectedBackgroundConverter"/>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
