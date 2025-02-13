@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:BaseQuizPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RailwayTrainingDemo"
+             x:Class="RailwayTrainingDemo.MockTestPage"
+             Title="Mock Test">
+
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <!-- Timer and Progress -->
+        <Grid Grid.Row="0" 
+              ColumnDefinitions="*,Auto" 
+              RowDefinitions="Auto,Auto"
+              Margin="0,0,0,20">
+            
+            <!-- Progress -->
+            <VerticalStackLayout Grid.Column="0" Grid.Row="0">
+                <Label Text="{Binding ProgressText}"
+                       FontSize="16"/>
+                <ProgressBar Progress="{Binding Progress}"
+                            HeightRequest="10"/>
+            </VerticalStackLayout>
+
+            <!-- Timer -->
+            <Frame Grid.Column="1" Grid.Row="0"
+                   BorderColor="{Binding TimerColor}"
+                   Padding="15,10"
+                   CornerRadius="10">
+                <Label Text="{Binding TimeRemaining}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="{Binding TimerColor}"/>
+            </Frame>
+        </Grid>
+
+        <!-- Question Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="20">
+                <!-- Question -->
+                <Label Text="{Binding QuestionText}"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+
+                <!-- Options -->
+                <VerticalStackLayout x:Name="OptionsStack"
+                                   Spacing="15"/>
+
+                <!-- Submit Button -->
+                <Button Text="Submit Answer"
+                        Clicked="OnSubmitClicked"
+                        Margin="0,20"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</local:BaseQuizPage> 

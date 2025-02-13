@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RailwayTrainingDemo.HomePage"
-             Title="HomePage">
+             Title="HomePage"
+             Background= "{StaticResource globalBackground}">
     <VerticalStackLayout Margin="20">
         <Label 
             Text="Welcome to the Railway Training App"
@@ -21,6 +22,7 @@
             Text="Get Started"
             VerticalOptions="Center"
             HorizontalOptions="CenterAndExpand"
-            Clicked="StartBtn_Clicked"></Button>
+            Clicked="StartBtn_Clicked"
+            Background="{StaticResource buttonUnselected}"></Button>
     </VerticalStackLayout>
 </ContentPage>

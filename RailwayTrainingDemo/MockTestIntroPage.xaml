@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RailwayTrainingDemo.MockTestIntroPage"
+             Title="Mock Test Introduction">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="20">
+            
+            <!-- Header -->
+            <Label Text="Mock Test Instructions"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <!-- Warning Icon -->
+            <Label Text="&#xF0028;"
+                   FontFamily="{StaticResource MaterialDesignIcons}"
+                   FontSize="64"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalOptions="Center"/>
+
+            <!-- Instructions -->
+            <Frame BorderColor="{StaticResource Primary}"
+                   Padding="20"
+                   CornerRadius="10">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Please read carefully:"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    
+                    <Label Text="• This is a timed mock test"
+                           FontSize="16"/>
+                    
+                    <Label Text="• You will have 60 minutes to complete 20 questions"
+                           FontSize="16"/>
+                    
+                    <Label Text="• Once started, the timer cannot be paused"
+                           FontSize="16"/>
+                    
+                    <Label Text="• Ensure you have a quiet space to concentrate"
+                           FontSize="16"/>
+                    
+                    <Label Text="• Make sure you have stable internet connection"
+                           FontSize="16"/>
+                    
+                    <Label Text="• You must complete all questions to pass"
+                           FontSize="16"/>
+                    
+                    <Label Text="• The pass mark is 80% (16 correct answers)"
+                           FontSize="16"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Time Allocation -->
+            <Frame BorderColor="Orange"
+                   BackgroundColor="#fff3e0"
+                   Padding="15"
+                   CornerRadius="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Time Management Tip:"
+                           FontAttributes="Bold"
+                           TextColor="Orange"/>
+                    <Label Text="You have approximately 3 minutes per question. Pace yourself accordingly."
+                           TextColor="Orange"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Buttons -->
+            <VerticalStackLayout Spacing="10" 
+                               Margin="0,20,0,0">
+                <Button Text="Start Mock Test"
+                        Clicked="OnStartTestClicked"
+                        HeightRequest="50"
+                        FontAttributes="Bold"/>
+                
+                <Button Text="Return to Menu"
+                        Clicked="OnReturnToMenuClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource Primary}"
+                        BorderColor="{StaticResource Primary}"
+                        BorderWidth="1"
+                        HeightRequest="50"/>
+            </VerticalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

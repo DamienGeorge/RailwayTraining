@@ -1,16 +1,41 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Microsoft.Maui.Controls;
+
 namespace RailwayTrainingDemo;
-public partial class MultipleChoice : BaseQuizPage
+
+public partial class MockTestPage : BaseQuizPage
 {
-    public MultipleChoice() : base(10) // 10 questions for regular quiz
+    private TimeSpan timeRemaining = TimeSpan.FromHours(1);
+    private IDispatcherTimer? timer;
+    private Color timerColor = Colors.Green;
+
+    public string TimeRemaining => $"{timeRemaining:hh\\:mm\\:ss}";
+
+    public Color TimerColor
+    {
+        get => timerColor;
+        set
+        {
+            if (timerColor != value)
+            {
+                timerColor = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public MockTestPage() : base(20)
     {
         try
         {
             InitializeComponent();
             BindingContext = this;
+            InitializeTimer();
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine($"Error in MultipleChoice constructor: {ex.Message}");
+            System.Diagnostics.Debug.WriteLine($"Error in MockTestPage constructor: {ex.Message}");
         }
     }
 
@@ -83,6 +108,7 @@ public partial class MultipleChoice : BaseQuizPage
             }
             else
             {
+                timer?.Stop();
                 await base.NavigateToResults();
             }
         }
@@ -93,16 +119,64 @@ public partial class MultipleChoice : BaseQuizPage
         }
     }
 
-    private async void OnReturnToMenuClicked(object sender, EventArgs e)
+    private void InitializeTimer()
     {
         try
         {
-            await Shell.Current.GoToAsync("///home");
+            if (Application.Current?.Dispatcher == null) return;
+
+            timer = Application.Current.Dispatcher.CreateTimer();
+            if (timer != null)
+            {
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += Timer_Tick;
+                timer.Start();
+            }
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine($"Navigation error in OnReturnToMenuClicked: {ex.Message}");
-            await base.DisplayAlert("Error", "Unable to return to menu. Please try again.", "OK");
+            System.Diagnostics.Debug.WriteLine($"Error initializing timer: {ex.Message}");
         }
     }
-}
+
+    private void Timer_Tick(object? sender, EventArgs e)
+    {
+        timeRemaining = timeRemaining.Subtract(TimeSpan.FromSeconds(1));
+        OnPropertyChanged(nameof(TimeRemaining));
+
+        if (timeRemaining.TotalMinutes <= 5)
+        {
+            TimerColor = Colors.Red;
+        }
+        else if (timeRemaining.TotalMinutes <= 15)
+        {
+            TimerColor = Colors.Orange;
+        }
+
+        if (timeRemaining <= TimeSpan.Zero)
+        {
+            timer?.Stop();
+            _ = HandleTimeUp();
+        }
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        timer?.Stop();
+    }
+
+    private async Task HandleTimeUp()
+    {
+        try
+        {
+            await DisplayAlert("Time's Up!", "Your time has expired. Let's review your results.", "OK");
+            await base.NavigateToResults();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error handling time up: {ex.Message}");
+            await DisplayAlert("Error", "There was a problem submitting your test. Please try again.", "OK");
+        }
+    }
+} 

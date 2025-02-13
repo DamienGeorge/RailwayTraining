@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RailwayTrainingDemo.FlashcardTopicPage"
-             Title="Select Topics">
+             Title="Select Topics"
+             Background="{StaticResource globalBackground}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="10" Background="White">
+        <VerticalStackLayout Padding="20" Spacing="10">
             <Label Text="Select Topics to Study"
                    FontSize="24"
                    HorizontalOptions="Center"
@@ -68,7 +69,9 @@
                     HeightRequest="60"
                     FontSize="18"
                     FontAttributes="Bold"
-                    Clicked="OnStartStudyClicked"/>
+                    Clicked="OnStartStudyClicked"
+                    Background="{StaticResource buttonUnselected}"
+                    HorizontalOptions="CenterAndExpand"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage> 

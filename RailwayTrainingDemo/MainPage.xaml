@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RailwayTrainingDemo.MainPage"
-             Title="Railway Training">
-
+             Title="Railway Training"
+             Background="{StaticResource globalBackground}">
     <ScrollView>
         <Grid RowDefinitions="Auto,*,Auto" 
               Padding="20"
@@ -33,7 +33,8 @@
                 <Frame Grid.Row="0" Grid.Column="0"
                        BorderColor="#e0e0e0"
                        CornerRadius="10"
-                       HasShadow="True">
+                       HasShadow="True"
+                       Background="{StaticResource buttonUnselected}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnMultipleChoiceClicked"/>
                     </Frame.GestureRecognizers>
@@ -49,16 +50,43 @@
                                HorizontalOptions="Center"/>
                         <Label Text="Test your knowledge"
                                FontSize="14"
-                               TextColor="Gray"
+                               TextColor="{StaticResource lightGreen}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Mock Tests Card -->
+                <Frame Grid.Row="0" Grid.Column="1"
+                       BorderColor="#e0e0e0"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Background="{StaticResource buttonUnselected}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMockTestsClicked"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="&#xF0719;"
+                               FontFamily="{StaticResource MaterialDesignIcons}"
+                               FontSize="60"
+                               TextColor="{StaticResource Primary}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Mock Tests"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Practice full exams"
+                               FontSize="14"
+                               TextColor="{StaticResource lightGreen}"
                                HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Frame>
 
                 <!-- Flashcards Card -->
-                <Frame Grid.Row="0" Grid.Column="1"
+                <Frame Grid.Row="1" Grid.Column="0"
                        BorderColor="#e0e0e0"
                        CornerRadius="10"
-                       HasShadow="True">
+                       HasShadow="True"
+                       Background="{StaticResource buttonUnselected}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnFlashcardsClicked"/>
                     </Frame.GestureRecognizers>
@@ -74,57 +102,33 @@
                                HorizontalOptions="Center"/>
                         <Label Text="Learn and memorize"
                                FontSize="14"
-                               TextColor="Gray"
+                               TextColor="{StaticResource lightGreen}"
                                HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <!-- Progress Card -->
-                <Frame Grid.Row="1" Grid.Column="0"
-                       BorderColor="#e0e0e0"
-                       CornerRadius="10"
-                       HasShadow="True">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnProgressClicked"/>
-                    </Frame.GestureRecognizers>
-                    <VerticalStackLayout Spacing="10">
-                        <Label Text="&#xF0492;"
-                               FontFamily="{StaticResource MaterialDesignIcons}"
-                               FontSize="60"
-                               TextColor="{StaticResource Primary}"
-                               HorizontalOptions="Center"/>
-                        <Label Text="Progress"
-                               FontSize="18"
-                               FontAttributes="Bold"
-                               HorizontalOptions="Center"/>
-                        <Label Text="Track your learning"
-                               FontSize="14"
-                               TextColor="Gray"
-                               HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
-                </Frame>
-
-                <!-- Settings Card -->
+                <!-- Phonetics Card -->
                 <Frame Grid.Row="1" Grid.Column="1"
                        BorderColor="#e0e0e0"
                        CornerRadius="10"
-                       HasShadow="True">
+                       HasShadow="True"
+                       Background="{StaticResource buttonUnselected}">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnSettingsClicked"/>
+                        <!--<TapGestureRecognizer Tapped="OnPhoneticsClicked"/>-->
                     </Frame.GestureRecognizers>
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="&#xF0493;"
+                        <Label Text="&#xF057C;"
                                FontFamily="{StaticResource MaterialDesignIcons}"
                                FontSize="60"
                                TextColor="{StaticResource Primary}"
                                HorizontalOptions="Center"/>
-                        <Label Text="Settings"
+                        <Label Text="Phonetics"
                                FontSize="18"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"/>
-                        <Label Text="Customize app"
+                        <Label Text="Practice pronunciation"
                                FontSize="14"
-                               TextColor="Gray"
+                               TextColor="{StaticResource lightGreen}"
                                HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Frame>
@@ -138,4 +142,4 @@
                    HorizontalOptions="Center"/>
         </Grid>
     </ScrollView>
-</ContentPage> 
+</ContentPage>

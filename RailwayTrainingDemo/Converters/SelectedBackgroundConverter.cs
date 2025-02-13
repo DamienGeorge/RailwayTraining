@@ -1,18 +1,18 @@
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace RailwayTrainingDemo.Converters;
 
-public class SelectedItemConverter : IValueConverter
+public class SelectedBackgroundConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        return (bool)value
-            ? Color.FromArgb("#CCD5AE")
-            : Color.FromArgb("#D4A373");
+        return (bool)value 
+            ? Color.FromArgb("#E9EDC9") 
+            : Colors.White;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         throw new NotImplementedException();
     }
-}
+} 

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<local:BaseQuizPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RailwayTrainingDemo"
              x:Class="RailwayTrainingDemo.MultipleChoice"
-             Title="Multiple Choice Quiz">
+             Title="Multiple Choice Quiz"
+             Background="{StaticResource globalBackground}">
 
     <VerticalStackLayout Padding="20" Spacing="20">
         <!-- Progress Bar -->
@@ -28,6 +30,7 @@
         <Button Text="Submit Answer"
                 HorizontalOptions="Center"
                 Margin="0,20,0,0"
-                Clicked="OnSubmitClicked"/>
+                Clicked="OnSubmitClicked"
+                BackgroundColor="{StaticResource buttonUnselected}"/>
     </VerticalStackLayout>
-</ContentPage>
+</local:BaseQuizPage>

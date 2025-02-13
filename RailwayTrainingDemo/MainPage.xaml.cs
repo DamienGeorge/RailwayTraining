@@ -7,6 +7,11 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        AppShell.SetBackgroundColor(this, Color.FromArgb("#582F0E"));
+    }
     private async void OnMultipleChoiceClicked(object sender, EventArgs e)
     {
         try
@@ -54,6 +59,19 @@ public partial class MainPage : ContentPage
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine($"Error in OnSettingsClicked: {ex.Message}");
+        }
+    }
+
+    private async void OnMockTestsClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync(nameof(MockTestIntroPage));
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Navigation error in OnMockTestsClicked: {ex.Message}");
+            await DisplayAlert("Error", "Unable to start mock test. Please try again.", "OK");
         }
     }
 } 

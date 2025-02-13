@@ -13,5 +13,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(FlashcardCompletionPage), typeof(FlashcardCompletionPage));
         Routing.RegisterRoute(nameof(MultipleChoice), typeof(MultipleChoice));
         Routing.RegisterRoute(nameof(QuizResultsPage), typeof(QuizResultsPage));
+        Routing.RegisterRoute(nameof(MockTestPage), typeof(MockTestPage));
+        Routing.RegisterRoute(nameof(MockTestIntroPage), typeof(MockTestIntroPage));
     }
 }
